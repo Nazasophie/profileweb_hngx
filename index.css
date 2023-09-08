@@ -1,0 +1,41 @@
+/* Set the font and text alignment for the entire body */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Style the header with a pink background, white text, and padding */
+header {
+    background-color: hotpink;
+    color: white;
+    padding: 10px;
+    margin: 0 150px; /* Add margin to the left and right of the header */
+}
+
+/* Style the profile image with a border, transition effect, and hover effect */
+.profile img {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 100%;
+    border: 3px solid hotpink;
+    transition: all 0.5s; /* Apply a smooth transition effect on hover */
+}
+
+/* Add a hover effect to the profile image */
+.profile img:hover {
+    transform: scale(1.2) rotate(360deg); /* Scale and rotate the image on hover */
+}
+
+/* Create space between the profile and the information section */
+.info {
+    margin-top: 20px;
+}
+
+/* Apply a hover effect to the GitHub link */
+a[data-testid="githubURL"]:hover {
+    color: hotpink; /* Change the color to pink on hover (you can choose any color you prefer) */
+    text-decoration: underline; /* Underline the link on hover */
+}
+
+
