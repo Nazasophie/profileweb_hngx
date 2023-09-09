@@ -14,11 +14,25 @@
             <h2 data-testid="slackUserName">Chinaza Sunday</h2>
         </div>
         <div class="info">
-            <p><strong>Friday:</strong> <span data-testid="currentDayOfTheWeek">Friday</span></p>
-            <p><strong>Current UTC Time:</strong> <span data-testid="currentUTCTime">04:17 PM UTC</span></p>
+            <p><strong>Saturday:</strong> <span data-testid="currentDayOfTheWeek">Saturday</span></p>
+            <p><strong>Current UTC Time:</strong> <span id="currentUTCTime" data-testid="currentUTCTime">Loading...</span></p>
             <p><strong>Track:</strong> <span data-testid="myTrack">Frontend</span></p>
             <p><strong>GitHub URL:</strong> <a href="https://github.com/Nazasophie" data-testid="githubURL">https://github.com/Nazasophie</a></p>
         </div>
     </section>
+
+    <!-- JavaScript to display current UTC time -->
+    <script>
+        // Function to update the UTC time every second
+        function updateUTCTime() {
+            const utcTimeElement = document.getElementById('currentUTCTime');
+            const currentTime = new Date().toUTCString();
+            utcTimeElement.textContent = currentTime;
+        }
+
+        // Update the UTC time initially and then every second
+        updateUTCTime();
+        setInterval(updateUTCTime, 1000);
+    </script>
 </body>
 </html>
