@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>My Profile Page</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
     <header>
-        <h1>My Profile Page</h1>
+      <h1>My Profile Page</h1>
     </header>
     <section>
-        <div class="profile">
-            <img src="images/naza.jpg" alt="Chinaza Sunday" data-testid="slackDisplayImage">
-            <h2 data-testid="slackUserName">Chinaza Sunday</h2>
-        </div>
-        <div class="info">
-            <p><strong>Saturday:</strong> <span data-testid="currentDayOfTheWeek">Saturday</span></p>
-            <!-- Add a unique ID to the UTC time span -->
-            <p><strong>Current UTC Time:</strong> <span id="currentUTCTime" data-testid="currentUTCTime"></span></p>
-            <p><strong>Track:</strong> <span data-testid="myTrack">Frontend</span></p> 
-            <p><strong>GitHub URL:</strong> <a href="https://github.com/Nazasophie" data-testid="githubURL">https://github.com/Nazasophie</a></p>
-        </div>
+      <div class="profile">
+        <img
+          src="images/naza.jpg"
+          alt="Chinaza Sunday"
+          data-testid="slackDisplayImage"
+        />
+        <h2 data-testid="slackUserName">Chinaza Sunday</h2>
+      </div>
+      <div class="info">
+        <p>
+          <strong>Saturday:</strong>
+          <span data-testid="currentDayOfTheWeek">Saturday</span>
+        </p>
+        <!-- Add a unique ID to the UTC time span -->
+        <p>
+          <strong>Current UTC Time:</strong>
+          <span id="currentUTCTime" data-testid="currentUTCTime"></span>
+        </p>
+        <p>
+          <strong>Track:</strong> <span data-testid="myTrack">Frontend</span>
+        </p>
+        <p>
+          <strong>GitHub URL:</strong>
+          <a href="https://github.com/Nazasophie" data-testid="githubURL"
+            >https://github.com/Nazasophie</a
+          >
+        </p>
+      </div>
     </section>
 
-
-    
-
     <script>
-        let time = document.getElementById('currentUTCTime');
+      let time = document.getElementById("currentUTCTime");
 
-        setInterval(() => {
-            let date = new Date();
-        time.innerHTML = date.toUTCString();
-        }, 1000)
-        
+      setInterval(() => {
+        let date = new Date();
+        time.innerHTML =
+          date.toISOString().slice(0, 19) + "." + date.getMilliseconds() + "Z";
+      }, 1);
     </script>
-</body>
+  </body>
 </html>
