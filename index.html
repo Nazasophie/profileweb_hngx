@@ -40,13 +40,35 @@
     </section>
 
     <script>
-      let time = document.getElementById("currentUTCTime");
+      const currentDate = new Date();
 
-      setInterval(() => {
-        let date = new Date();
-        time.innerHTML =
-          date.toISOString().slice(0, 19) + "." + date.getMilliseconds() + "Z";
-      }, 1);
+// To get the current day of the week
+const getCurrentDayOfWeek = () => {
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+  return dayOfWeek;
+}
+
+// 
+const getCurrentUTCMillisecond = () => {
+  const currentUTCTimeMilliseconds = new Date().getTime();
+  return `${currentUTCTimeMilliseconds}`
+}
+
+const updateUTCTime = () => {
+  const currentDayElement = document.querySelector('[data-testid="currentDayOfTheWeek"]');
+  const currentUTCMillisecondElement = document.querySelector('[data-testid="currentUTCTime"]');
+  
+ currentDayElement.textContent = `Current Day of the Week: ${getCurrentDayOfWeek()}`;
+  currentUTCMillisecondElement.textContent = `${getCurrentUTCMillisecond()}Milliseconds`;
+  
+  // const currentUTCTimeElementHMS = document.querySelector('[data-testid="currentUTCHMS"]');
+  // currentUTCTimeElementHMS.textContent = `${getCurrentUTCTimeHMS()}`;
+}
+
+// Updating the Current Day of the Week and Current UTC Time elements in the HTML page every 1 second
+setInterval(updateUTCTime, 1000);
+document.addEventListener("DOMContentLoaded", updateUTCTime);
     </script>
   </body>
 </html>
